@@ -1,0 +1,110 @@
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+        <img class="img-profile rectangle" width="180
+        " height="70"
+                            src="assets/img/enicar.jpg">
+    
+        
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/accueil">
+            <i class="fas fa-fw fa-home"></i>
+            <span>Accueil</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+   
+   
+     <div class="sidebar-heading">
+        Organisations
+    </div>
+    <li class="nav-item" >
+        <a class="nav-link" routerLink="/orgsacceptees">
+            <i class="fas fa-check-circle"></i>
+        <span>Organisations acceptées</span></a>
+    </li>
+    
+    <li class="nav-item" >
+        <a class="nav-link" routerLink="/orgsenattente">
+            <i class="fas fa-times-circle"></i>
+         <span>Organisations en attente</span></a>
+    </li>
+    <hr class="sidebar-divider">
+     <!-- Heading -->
+     <div class="sidebar-heading">
+        Demandes
+    </div>
+
+       <!-- Nav Item - Charts -->
+       <li class="nav-item">
+        <a class="nav-link"  data-toggle="collapse" data-target="#collapseSalle" aria-expanded="true" aria-controls="collapseSalle">
+            <i class="fa fa-building"></i>
+            <span>Demandes de salle</span>
+        </a>
+        <div id="collapseSalle" class="collapse" aria-labelledby="headingSalle" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item active" routerLink="/demande-salle">Acceptées</a>
+                <a class="collapse-item" routerLink="/demande-salleNC">En attente</a>
+                <a class="collapse-item" routerLink="/demande-salleRF">Refusées</a>
+            </div>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseMateriel" aria-expanded="true" aria-controls="collapseMateriel">
+            <i class="fa fa-list"></i>
+            <span>Demandes de matériel</span>
+        </a>
+        <div id="collapseMateriel" class="collapse" aria-labelledby="headingMateriel" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item active" routerLink="/demande-materiel">Acceptées</a>
+                <a class="collapse-item" routerLink="/demande-materielNC">En attente</a>
+                <a class="collapse-item" routerLink="/demande-materielRF">Refusées</a>
+            </div>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fa fa-bus"></i>
+            <span>Demandes de bus</span>
+        </a>
+        <div id="collapseTwo" class="collapse hide" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item active" routerLink="/demande-bus">Acceptées</a>
+                <a class="collapse-item" routerLink="/demande-busNC">En attente</a>
+                <a class="collapse-item" routerLink="/demande-busRF">Refusées</a>
+            </div>
+        </div>
+    </li>
+
+ 
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+    
+     <!-- Heading -->
+   
+    <!-- Nav Item - Charts -->
+    <li class="nav-item">
+        <a class="nav-link"routerLink="/propositions">
+            <i class="fa fa-plus-circle" ></i>          
+            <span>Propositions</span></a>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="/reclamations">
+            <i class="fa fa-minus-circle" ></i>      
+            <span>Réclamations </span></a>
+    </li>
+       <!-- Divider -->
+       <hr class="sidebar-divider">
+
+
+
+</ul>

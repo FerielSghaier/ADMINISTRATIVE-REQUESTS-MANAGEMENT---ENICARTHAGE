@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>menu</title>
+    <style>
+      .description {
+        background-color: #f5f5f5;
+        padding: 50px 0;
+      }
+
+      .description h2 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .description p {
+        font-size: 1.25rem;
+        margin-bottom: 30px;
+      }
+
+      .description img {
+        border-radius: 5px;
+      }
+    </style>
+
+    <!-- Custom fonts for this template-->
+  </head>
+
+  <body id="page-top">
+    <app-navbar-org></app-navbar-org>
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <app-menu-org></app-menu-org>
+
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+
+          <!-- End of Topbar -->
+
+          <!-- /.container-fluid -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <section class="description">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-24">
+                    <h2>
+                      L'Ecole Nationale d’Ingénieurs de Carthage (ENICarthage)
+                    </h2>
+                    <p>
+                      L'Ecole Nationale d’Ingénieurs de Carthage (ENICarthage)
+                      est un établissement d’enseignement supérieur publique,
+                      relevant de l'Université de Carthage, créé (décret n°
+                      2002-1623 du 9 juillet 2002), en tant que Ecole Supérieure
+                      de Technologie et d’Informatique (ESTI), en 2002 et
+                      transformé en école nationale d’ingénieurs recrutant ses
+                      élèves à partir du concours national d’ingénieurs à partir
+                      de septembre 2012 (décret n° 2014-4677 du 29 décembre
+                      2014). Etant habilitée à délivrer des diplômes de Maîtrise
+                      depuis 2002 et ayant intégré le système LMD depuis la
+                      rentrée 2007, Cette école a offert plusieurs formations
+                      spécialisées dans les domaines du Génie Electrique, de
+                      l’Informatique et de la Gestion Industrielle, parmi
+                      lesquelles des formations d’ingénieurs en sciences
+                      appliquées et Technologie.
+                    </p>
+                    <button class="btn btn-primary">En savoir plus</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- Page Heading -->
+
+            <div class="card shadow mb-0">
+              <div class="card-header py-3">
+                <div class="text-center">
+                  <h5 class="m-0 font-weight-bold text-primary">
+                    Demandes Accéptées
+                  </h5>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="table-responsive">
+                  <h6 class="m-0 font-weight-bold text-primary">Salles</h6>
+
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Numéro de demande</th>
+                        <th>Numéro de salle</th>
+                        <th>Bâtiment</th>
+                        <th>Date</th>
+                        <th>Heure</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <tr *ngFor="let demandeS of listSalle">
+                            <td>{{ demandeS.id }}</td>
+                            <td>{{ demandeS.numSalle }}</td>
+                            <td>{{ demandeS.batiment }}</td>
+                            <td>{{ demandeS.date }}</td>
+                            <td>{{ demandeS.temps }}</td>
+                       
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-responsive">
+                  <h6 class="m-0 font-weight-bold text-primary">Materiels</h6>
+
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Numéro de demande</th>
+                        <th>Matériel</th>
+                        <th>Quantité</th>
+                        <th>Date</th>
+                        <th>Heure</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr *ngFor="let demandeM of listMateriel">
+                            <td>{{ demandeM.id }}</td>
+                            <td>{{ demandeM.materiel }}</td>
+                            <td>{{ demandeM.quantite }}</td>
+                            <td>{{ demandeM.date }}</td>
+                            <td>{{ demandeM.temps }}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="table-responsive">
+                  <h6 class="m-0 font-weight-bold text-primary">Bus</h6>
+
+                  <table
+                    class="table table-bordered"
+                    id="dataTable"
+                    width="100%"
+                    cellspacing="0"
+                  >
+                    <thead>
+                      <tr>
+                        <th>Numéro de demande</th>
+                        <th>Destination</th>
+                        <th>Date de départ</th>
+                        <th>Heure de départ</th>
+                        <th>Date de retour</th>
+                        <th>Heure de retour</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      
+                        <tr *ngFor="let demande of listBus">
+                            <td>{{ demande.id }}</td>
+                            <td>{{ demande.destination }}</td>
+                            <td>{{ demande.dateDep }}</td>
+                            <td>{{ demande.heureDep }}</td>
+                            <td>{{ demande.dateArr }}</td>
+                            <td>{{ demande.heureArr }}</td>
+                       
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Enicarthage &copy; 2022-2023</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Voulez vous quittez votre session?
+            </h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Annuler
+            </button>
+            <a class="btn btn-primary" href="">Confirmer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

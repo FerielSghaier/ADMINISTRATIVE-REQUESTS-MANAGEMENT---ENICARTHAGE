@@ -1,0 +1,84 @@
+<div class="container">
+  <div class="image-container">
+    <img
+      class="img-profile rectangle"
+      width="500
+        "
+      height="600"
+      src="assets/img/register.png"
+    />
+  </div>
+  <div class="form-container">
+    <h1>Créer un nouveau compte</h1>
+    <form class="user" (ngSubmit)="onSubmit"
+    #organisationForm="ngForm" >
+      <div class="row">
+        <div class="col-xl-5">
+          <label for="username">Nom </label>
+          <input type="text" id="username" formControlName="nom" name="nom"
+          [(ngModel)]="organisation.nom"
+        required/>
+          <div *ngIf="nom?.touched && nom?.invalid">
+            <small class="text-danger" *ngIf="nom?.errors?.['required']">Nom 
+                est obligatoire</small>       
+          </div> 
+
+          <label for="username">Nom Responsable</label>
+          <input type="text" id="username"  formControlName="nomResp" name="nomResp"
+          [(ngModel)]="organisation.nomResp" required />
+          
+          
+          <label for="username">Description </label>
+          <input type="textArea" id="username" name="description"
+          [(ngModel)]="organisation.description" formControlName="description" required />
+          
+          <label for="type">Type :</label>
+            <select id="type" name="type" 
+            [(ngModel)]="organisation.type" formControlName="type" required>
+              <option value="club">Club</option>
+              <option value="association">Association</option>
+            </select>
+            <div *ngIf="type?.touched && type?.invalid">
+              <small class="text-danger" *ngIf="type?.errors?.['required']">Type 
+                  est obligatoire</small>       
+            </div> 
+        </div>
+
+        <div class="col-xl-5">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" 
+          [(ngModel)]="organisation.email" required formControlName="email" />
+          <div *ngIf="email?.touched && email?.invalid">
+            <small class="text-danger" *ngIf="email?.errors?.['required']">Email
+                est obligatoire</small>   
+            <small class="text-danger" *ngIf="email?.errors?.['email']">Format email</small>    
+          </div> 
+          
+            <label for="password">Mot de passe</label>
+            <input type="password" id="password" name="mdp"
+            [(ngModel)]="organisation.mdp" formControlName="mdp" required />
+            <div *ngIf="mdp?.touched && mdp?.invalid">
+              <small class="text-danger" *ngIf="mdp?.errors?.['required']">Mot de passe 
+                  est obligatoire</small>       
+            </div> 
+          <label for="username">Numéro de téléphone</label>
+          <input type="tel" id="username" name="tel"
+          [(ngModel)]="organisation.tel" required formControlName="tel" />
+          <div *ngIf="tel?.touched && tel?.invalid">
+            <small class="text-danger" *ngIf="tel?.errors?.['required']">Numéro de téléphone 
+                est obligatoire</small>       
+          </div> 
+          <div class="col-lg-15">
+            <label for="logo">Logo :</label>
+            <input type="file" id="logo" name="logo" accept="image/*" name="logo"
+            [(ngModel)]="organisation.logo"required />
+          </div>
+        </div>
+      </div>
+      
+      
+     
+      <input type="submit" (click)="onSubmit()" value="Créer un compte" />
+    </form>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>menu</title>
+
+    <!-- Custom fonts for this template-->
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <app-menu-org></app-menu-org>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <app-navbar-org></app-navbar-org>
+
+        <!-- Main Content -->
+        <div id="content">
+          <!-- /.container-fluid -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="text-center">
+                      <h4 class="card-title">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          Déposer votre réclamation
+                        </h6>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="basic-form">
+                      <form (ngSubmit)="onSubmit"
+                      #reclamationForm="ngForm">
+                        <div class="row">
+                          <div class="col-xl-24">
+                            <div class="form-group">
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Objet"
+                                name="objet"
+                              [(ngModel)]="reclamation.objet"
+                            required
+                              />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row"></div>
+
+                        <div class="row">
+                          <!--<div class="col-xl-4">-->
+                          <div class="form-group">
+                            <textarea
+                              class="form-control"
+                              placeholder="Contenu"
+                              rows="4"
+                              name="contenu"
+                              [(ngModel)]="reclamation.contenu"
+                            required
+                            ></textarea>
+                          </div>
+                          <div class="form-group">
+                            <textarea
+                              class="form-control"
+                              placeholder="Solution proposée"
+                              rows="4"
+                              name="solution"
+                              [(ngModel)]="reclamation.solution"
+                            required
+                            ></textarea>
+                          </div>
+                          <!--</div>-->
+                          <div class="col-xl-7">
+                            <div class="form-group text-right">
+                              <button
+                                type="submit"
+                                class="btn btn-primary float-end"
+                                (click)="onSubmit()"
+                              >
+                                Envoyer
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Enicarthage &copy; 2022-2023</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Voulez vous quittez votre session?
+            </h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Annuler
+            </button>
+            <a class="btn btn-primary" href="">Confirmer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

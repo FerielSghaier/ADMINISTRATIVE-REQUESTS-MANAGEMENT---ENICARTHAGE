@@ -1,0 +1,105 @@
+<body id="page-top">
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+    <!-- Sidebar -->
+    <app-menu-org></app-menu-org>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <app-navbar-org></app-navbar-org>
+
+      <!-- Main Content -->
+      <div id="content">
+        <!-- /.container-fluid -->
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+          <!-- Page Heading -->
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <div class="text-center">
+                    <h4 class="card-title">
+                      <h6 class="m-0 font-weight-bold text-primary">
+                        Donner votre proposition d'amélioration de notre école
+                      </h6>
+                    </h4>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="basic-form">
+                    <form (ngSubmit)="onSubmit"
+                    #propositionForm="ngForm">
+                      <div class="row">
+                        <div class="col-xl-24">
+                          <div class="form-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="Objet"
+                              name="objet"
+                              [(ngModel)]="proposition.objet"
+                            required
+                            />
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row"></div>
+
+                      <div class="row">
+                        <!--<div class="col-xl-4">-->
+                        <div class="form-group">
+                          <textarea
+                            class="form-control"
+                            placeholder="Contenu"
+                            rows="4"
+                            name="contenu"
+                              [(ngModel)]="proposition.contenu"
+                            required
+                          ></textarea>
+                        </div>
+
+                        <!--</div>-->
+                        <div class="col-xl-7">
+                          <div class="form-group text-right">
+                            <button
+                              type="submit"
+                              class="btn btn-primary float-end"
+                              (click)="onSubmit()"
+                            >
+                              Envoyer
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Enicarthage &copy; 2022-2023</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+    </div>
+    <!-- End of Content Wrapper -->
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+</body>

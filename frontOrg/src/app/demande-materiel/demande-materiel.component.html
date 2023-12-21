@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>menu</title>
+
+    <!-- Custom fonts for this template-->
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <app-menu-org></app-menu-org>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <app-navbar-org></app-navbar-org>
+
+        <!-- Main Content -->
+        <div id="content">
+          <!-- /.container-fluid -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+            <!-- Page Heading -->
+            <div class="row">
+              <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="text-center">
+                      <h4 class="card-title">
+                        <h6 class="m-0 font-weight-bold text-primary">
+                          Déposer la demande de matériel
+                        </h6>
+                      </h4>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="basic-form">
+                      <form
+                      (ngSubmit)="onSubmit"
+                      #demandeMaterielForm="ngForm"
+                      >
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <div class="form-group">
+                              <label for="materiel">Matériel:</label>
+                              <select
+                                id="materiel"
+                                name="materiel"
+                                class="form-control"
+                                [(ngModel)]="demandeMateriel.materiel"
+                              required
+                              >
+                                <option value="cable HDMI">Câble HDMI</option>
+                                <option value="multiprise">Multiprise</option>
+                                <option value="video_projecteur">
+                                  Vidéo projecteur
+                                </option>
+                              </select>
+                            </div>
+                          </div>
+
+                          <div class="col-xl-6">
+                            <div class="form-group">
+                              <label for="quantité">Quantité:</label>
+                              <input 
+                              type="text" 
+                              class="form-control" 
+                              name="materiel"
+                              [(ngModel)]="demandeMateriel.quantite"
+                              required/>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <div class="form-group">
+                              <label for="date">Date:</label>
+                              <input
+                                id="date"
+                                type="date"
+                                class="form-control"
+                                name="date"
+                                [(ngModel)]="demandeMateriel.date"
+                              required
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-xl-6">
+                            <div class="form-group">
+                              <label for="heure">Heure:</label>
+                              <input 
+                              type="time" 
+                              class="form-control" 
+                              name="temps"
+                            [(ngModel)]="demandeMateriel.temps"
+                              required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-xl-6">
+                            <div class="form-group">
+                              <label for="duree">Durée:</label>
+                              <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Durée en minutes"
+                                name="duree"
+                                [(ngModel)]="demandeMateriel.duree"
+                              required
+
+                              />
+                            </div>
+                          </div>
+
+                          <div class="col-xl-6">
+                            <div class="form-group">
+                              <label for="raison">Raison:</label>
+                              <input 
+                              type="text" 
+                              class="form-control"
+                              name="raison"
+                            [(ngModel)]="demandeMateriel.raison"
+                              required
+                               />
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <!--</div>-->
+
+                          <div class="col text-right">
+                            <button
+                            type="submit"
+                            class="btn btn-primary"
+                            (click)="onSubmit()"
+                          >
+                            Confirmer
+                          </button>
+                          </div>
+
+                          <div class="col text-left">
+                            <button type="submit" class="btn btn-primary" (click)="annuler()">
+                                Annuler
+                              </button>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Enicarthage &copy; 2022-2023</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    <div
+      class="modal fade"
+      id="logoutModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Voulez vous quittez votre session?
+            </h5>
+            <button
+              class="close"
+              type="button"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+
+          <div class="modal-footer">
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-dismiss="modal"
+            >
+              Annuler
+            </button>
+            <a class="btn btn-primary" href="">Confirmer</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

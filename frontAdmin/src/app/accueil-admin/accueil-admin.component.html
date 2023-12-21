@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>menu</title>
+
+    <!-- Custom fonts for this template-->
+  </head>
+
+  <body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+      <!-- Sidebar -->
+      <app-menu></app-menu>
+      <!-- End of Sidebar -->
+
+      <!-- Content Wrapper -->
+      <div id="content-wrapper" class="d-flex flex-column">
+        <app-navbar></app-navbar>
+
+        <!-- Main Content -->
+        <div id="content">
+          <!-- Topbar -->
+
+          <!-- End of Topbar -->
+
+          <!-- /.container-fluid -->
+          <!-- Begin Page Content -->
+          <div class="container-fluid">
+              
+            <!-- Page Heading -->
+            <div class="row justify-content-center">
+              <div class="col-sm-6 col-xl-3 col-lg-6">
+                <div
+                  class="widget card card-primary"
+                  style="background-color: #4a6fdc"
+                >
+                  <div class="card-body">
+                    <div class="media text-center">
+                      <span>
+                        <i class="fas fa-calendar-check fa-2x"></i>
+                      </span>
+                      <div class="media-body">
+                        <span class="text-white"
+                          >Nombre d'organisations confirmées</span
+                        >
+                        <h3 class="mb-0 text-white">{{ nbOrgsAcceptees }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-xl-3 col-lg-6">
+                <div
+                  class="widget card card-primary"
+                  style="background-color: #4a6fdc"
+                >
+                  <div class="card-body">
+                    <div class="media text-center">
+                      <span> <i class="fas fa-calendar-times fa-2x"></i> </span>
+                      <div class="media-body">
+                        <span class="text-white"
+                          >Nombre d'organisations en attente</span
+                        >
+                        <h3 class="mb-0 text-white">{{ nbOrgsEnattente }}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-lg-9 mt-2">
+                    <div class="col-bor box box-primary">
+                      <div class="row justify-content-center">
+                          <div class="col-sm-6 col-xl-5 col-lg-10">
+                            <div
+                              class="widget card card-primary"
+                              style="background-color: #4a6fdc"
+                            >
+                              <div class="card-body">
+                                <div class="media text-center">
+                                  <span>
+                                      <i class="fa fa-list" style="font-size: 2em;"></i>
+  
+                                  </span>
+                                  <div class="media-body">
+                                    <span class="text-white"
+                                      >Propositions</span
+                                    >
+                                    <h3 class="mb-0 text-white">{{ nbProp }}</h3>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-6 col-xl-5 col-lg-10">
+                            <div
+                              class="widget card card-primary"
+                              style="background-color: #4a6fdc"
+                            >
+                              <div class="card-body">
+                                <div class="media text-center">
+                                  <span> <i class="fa fa-list" style="font-size: 2em;"></i> </span>
+                                  <div class="media-body">
+                                    <span class="text-white"
+                                      >Reclamations</span
+                                    >
+                                    <h3 class="mb-0 text-white">{{ nbRec }}</h3>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                         
+                            
+                        </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            
+
+            
+            <!--<div class="row justify-content-center">-->
+            <div class="container">
+              <div class="row justify-content-center">
+                <div class="col-lg-9 mt-2">
+                  <div class="col-bor box box-primary">
+                    <div class="row justify-content-center">
+                        <div class="col-sm-6 col-xl-4 col-lg-6">
+                          <div
+                            class="widget card card-primary"
+                            style="background-color: #4a6fdc"
+                          >
+                            <div class="card-body">
+                              <div class="media text-center">
+                                <span>
+                                    <i class="fa fa-building" style="font-size: 2em;"></i>
+
+                                </span>
+                                <div class="media-body">
+                                  <span class="text-white"
+                                    >Nombre de demandes Salle en total</span
+                                  >
+                                  <h3 class="mb-0 text-white">{{ nbDemSal }}</h3>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4 col-lg-6">
+                          <div
+                            class="widget card card-primary"
+                            style="background-color: #4a6fdc"
+                          >
+                            <div class="card-body">
+                              <div class="media text-center">
+                                <span> <i class="fa fa-list" style="font-size: 2em;"></i> </span>
+                                <div class="media-body">
+                                  <span class="text-white"
+                                    >Nombre de demande matériel en total</span
+                                  >
+                                  <h3 class="mb-0 text-white">{{ nbDemMat }}</h3>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-sm-6 col-xl-4 col-lg-6">
+                            <div
+                              class="widget card card-primary"
+                              style="background-color: #4a6fdc"
+                            >
+                              <div class="card-body">
+                                <div class="media text-center">
+                                  <span> <i class="fa fa-bus" style="font-size: 2em;"></i> </span>
+                                  <div class="media-body">
+                                    <span class="text-white"
+                                      >Nombre de demande bus en total</span
+                                    >
+                                    <h3 class="mb-0 text-white">{{ nbDemBus }}</h3>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!--</div>-->
+          </div>
+        </div>
+        <!-- End of Main Content -->
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+          <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+              <span>Enicarthage &copy; 2022-2023</span>
+            </div>
+          </div>
+        </footer>
+        <!-- End of Footer -->
+      </div>
+      <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href=>
+      <i class="fas fa-angle-up"></i>
+    </a>
+  </body>
+</html>
