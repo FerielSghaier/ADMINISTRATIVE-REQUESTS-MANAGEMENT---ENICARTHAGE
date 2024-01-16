@@ -1,0 +1,110 @@
+<ion-menu contentId="main-content">
+  <ion-content>
+    
+<div class="menu-header-bg"></div>
+<div class="header-content">
+<img src="assets/img/mel.jpg" alt=""> <ion-label>
+<h2>Melkart Junior Entreprise</h2>
+<p>Association</p>
+</ion-label>
+</div>
+
+<ion-list lines="none">
+<ion-item class="card1" routerLink="/acceuil">
+<ion-icon name="home-outline"></ion-icon >Acceuil </ion-item>
+<ion-item class="card1" routerLink="/demande-salle">
+<ion-icon name="business-outline"></ion-icon>Demande Salle </ion-item>
+<ion-item class="card1" routerLink="/demande-bus" class="active">
+<ion-icon name="bus-outline"></ion-icon>Demande Bus
+</ion-item>
+<ion-item class="card1" routerLink="/demande-materiel">
+<ion-icon name="construct-outline"></ion-icon >Demande Matériel </ion-item>
+<ion-item class="card1" routerLink="/proposition">
+<ion-icon name="add-circle-outline"></ion-icon>Propositions </ion-item>
+<ion-item class="card1" routerLink="/reclamation">
+  <ion-icon name="remove-circle-outline"></ion-icon>Réclamations </ion-item>
+</ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content" class="ion-page" #page>
+  <ion-header  [translucent]="true">
+    <ion-toolbar color="light">
+     
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="sidebar-brand-text mx-3" color="primary">Espace Organisation</ion-title>
+      <ion-buttons slot="end">
+        <ion-button  id="present-alert">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+        <ion-alert
+trigger="present-alert"
+header="Voulez vous déconnecter ?"
+[buttons]="alertButtons"
+(didDismiss)="setResult($event)"
+></ion-alert>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+   
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          <ion-img src="assets/img/prop.png" alt="Mon image"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col size="12">
+          <ion-card-content class="ion-padding">
+            <ion-card-title class="ion-text-center">
+              <h1 class="text-gray-900 mb-4">Déposer votre réclamation</h1>
+            </ion-card-title>
+      <form (ngSubmit)="(onSubmit)" #reclamationForm="ngForm">
+     
+        <ion-item>
+          <ion-input class="form-control" label="Objet" labelPlacement="floating"  type="text"
+          class="form-control"
+          name="objet"
+          [(ngModel)]="reclamation.objet"
+          required></ion-input>
+        </ion-item>
+        <ion-item> 
+          <ion-input label="Contenu" labelPlacement="floating" type="textarea"
+          class="form-control"
+          name="contenu"
+          [(ngModel)]="reclamation.contenu"
+          required></ion-input>
+        </ion-item>
+        <ion-item> 
+          <ion-input label="Solution Proposée" labelPlacement="floating" type="textarea"
+          class="form-control"
+          name="solution"
+          [(ngModel)]="reclamation.solution"
+          ></ion-input>
+        </ion-item>
+
+        <ion-grid>
+          <ion-row>
+           
+            <ion-col pull-sm="6">
+              <ion-button shape="round"  type="submit" (click)="onSubmit()" class="btn btn-primary" class="ion-margin-top" expand="block">Confirmer</ion-button>
+  
+            </ion-col>
+            <ion-col push-sm="6">
+              <ion-button shape="round"  type="submit"  (click)="annuler()" class="btn btn-primary" class="ion-margin-top" expand="block">Annuler</ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </form>
+    </ion-card-content>
+  </ion-col>
+     </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+</div>

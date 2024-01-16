@@ -1,0 +1,83 @@
+<ion-content class="ion-padding bg-gradient-primary">
+  <div class="container mt-16">
+
+    <ion-row justify-content-center>
+     
+      <ion-row>
+        <ion-col size="12" class="ion-text-center">
+          <ion-img src="assets/img/register.png" alt="Mon image"></ion-img>
+        </ion-col>
+      </ion-row>
+      <ion-col size="12">
+        <div class="form-container">
+          <ion-card-title class="ion-text-center">
+            <h1 class="text-gray-900 mb-4">Créer un Nouveau Compte</h1>          
+          </ion-card-title>
+          
+          <form (ngSubmit)="onSubmit()" [formGroup]="FormGroup">
+            <ion-row>
+              <ion-col size="12" size-md="6">
+                
+                <ion-item>
+                  <ion-input type="text" label="Nom" labelPlacement="floating" formControlName="nom" [(ngModel)]="organisation.nom" required
+                  class="form-control form-control-user" id="exampleInputEmail"  errorText="Nom 
+                  est obligatoire" ngModel></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-select label="Type" placeholder="Selectionner un type" okText="Confirmer" cancelText="Annuler" formControlName="type" [(ngModel)]="organisation.type" required
+                  class="form-control form-control-user"  errorText="Type est obligatoire">
+                    <ion-select-option value="Association">Association</ion-select-option>
+                    <ion-select-option value="Club">Club</ion-select-option>
+                  </ion-select>
+                </ion-item>
+                <ion-item>
+                  <ion-input type="email" label="Email" labelPlacement="floating" formControlName="email" [(ngModel)]="organisation.email" required aria-describedby="emailHelp" helperText="Saisir un email valide"
+                  class="form-control form-control-user" id="exampleInputEmail"  errorText="Email
+                  est obligatoire" ngModel email></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input type="tel" label="Numéro de téléphone" labelPlacement="floating" formControlName="tel" [(ngModel)]="organisation.tel" required
+                  class="form-control form-control-user"  errorText="Numéro de téléphone
+                  est obligatoire" ngModel></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input type="textarea" label="Description" labelPlacement="floating" formControlName="description" [(ngModel)]="organisation.description" required
+                  class="form-control form-control-user"  errorText="Description 
+                  est obligatoire" ngModel></ion-input>
+                </ion-item>
+                
+                <ion-item>
+                  <ion-input type="text" label="Nom du Responsable" labelPlacement="floating" formControlName="nomResp" [(ngModel)]="organisation.nomResp" required
+                  class="form-control form-control-user"  errorText="Nom du responsable
+                  est obligatoire" ngModel></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-input type="text" label="Prenom du Responsable" labelPlacement="floating" formControlName="prenomResp" [(ngModel)]="organisation.prenomResp" required
+                  class="form-control form-control-user"  errorText="Prenom du responsable
+                  est obligatoire" ngModel></ion-input>
+                </ion-item>
+                <ion-item class="form-group">
+                  <ion-input type="password" label="Password" labelPlacement="floating" formControlName="mdp" [(ngModel)]="organisation.mdp" required class="form-control form-control-user" id="exampleInputPassword" errorText="Mot de passe est obligatoire"
+                  ngModel ></ion-input>
+
+                </ion-item>
+                
+              
+                
+                <!-- Add other fields here -->
+              </ion-col>
+              <ion-col size="12" size-md="6">
+                <!-- Add other fields here -->
+              </ion-col>
+            </ion-row>
+            <ion-button shape="round" expand="full" type="submit"  class="ion-margin-top">Créer un compte</ion-button>
+          </form>
+          <ion-button routerLink="/login" fill="clear" expand="full" class="ion-margin-top">
+            Se connecter
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+
+  </div>
+</ion-content>

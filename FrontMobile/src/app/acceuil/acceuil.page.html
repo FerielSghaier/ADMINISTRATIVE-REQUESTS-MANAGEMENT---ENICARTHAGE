@@ -1,0 +1,153 @@
+
+<ion-menu contentId="main-content">
+  <ion-content>
+    
+<div class="menu-header-bg"></div>
+<div class="header-content">
+<img src="assets/img/mel.jpg" alt=""> <ion-label>
+<h2>Melkart Junior Entreprise</h2>
+<p>Association</p>
+</ion-label>
+</div>
+
+<ion-list lines="none">
+<ion-item class="card1" routerLink="/acceuil">
+<ion-icon name="home-outline"></ion-icon >Acceuil </ion-item>
+<ion-item class="card1" routerLink="/demande-salle">
+<ion-icon name="business-outline"></ion-icon>Demande Salle </ion-item>
+<ion-item class="card1" routerLink="/demande-bus" class="active">
+<ion-icon name="bus-outline"></ion-icon>Demande Bus
+</ion-item>
+<ion-item class="card1" routerLink="/demande-materiel">
+<ion-icon name="construct-outline"></ion-icon >Demande Matériel </ion-item>
+<ion-item class="card1" routerLink="/proposition">
+<ion-icon name="add-circle-outline"></ion-icon>Propositions </ion-item>
+<ion-item class="card1"routerLink="/reclamation">
+  <ion-icon name="remove-circle-outline"></ion-icon>Réclamations </ion-item>
+</ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content" class="ion-page" #page>
+
+    <ion-header  [translucent]="true">
+      <ion-toolbar color="light">
+       
+        <ion-buttons slot="start">
+          <ion-menu-button></ion-menu-button>
+        </ion-buttons>
+        <ion-title class="sidebar-brand-text mx-3" color="primary">Espace Organisation</ion-title>
+        <ion-buttons slot="end">
+          <ion-button  id="present-alert">
+            <ion-icon slot="icon-only" name="log-out"></ion-icon>
+          </ion-button>
+          <ion-alert
+  trigger="present-alert"
+  header="Voulez vous déconnecter ?"
+  [buttons]="alertButtons"
+  (didDismiss)="setResult($event)"
+></ion-alert>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+   
+<ion-content  class="ion-padding" padding>
+
+  <ion-card class="ion-padding card1">
+  <ion-card-content>
+  <h2>L'Ecole Nationale d’Ingénieurs de Carthage (ENICarthage)</h2>
+  <p>
+    L'Ecole Nationale d’Ingénieurs de Carthage (ENICarthage) est un établissement
+    d’enseignement supérieur publique, relevant de l'Université de Carthage, créé
+    (décret n° 2002-1623 du 9 juillet 2002), en tant que Ecole Supérieure de Technologie
+    et d’Informatique (ESTI), en 2002 et transformé en école nationale d’ingénieurs
+    recrutant ses élèves à partir du concours national d’ingénieurs à partir de septembre
+    2012...</p>
+  <br>
+  <ion-button shape="round" id="open-modal" expand="block">Continuer</ion-button>
+  <ion-modal #modal trigger="open-modal" [canDismiss]="canDismiss" [presentingElement]="page">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar color="light">
+          <ion-title>ENICarthage</ion-title>
+          <ion-buttons slot="end">
+            <ion-icon (click)="modal.dismiss()" name="close-outline" size="large"></ion-icon>
+
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <img src="assets/img/enicar.jpg" class="desc" alt="">
+
+        <p>
+          L'Ecole Nationale d’Ingénieurs de Carthage (ENICarthage)
+                      est un établissement d’enseignement supérieur publique,
+                      relevant de l'Université de Carthage, créé (décret n°
+                      2002-1623 du 9 juillet 2002), en tant que Ecole Supérieure
+                      de Technologie et d’Informatique (ESTI), en 2002 et
+                      transformé en école nationale d’ingénieurs recrutant ses
+                      élèves à partir du concours national d’ingénieurs à partir
+                      de septembre 2012 (décret n° 2014-4677 du 29 décembre
+                      2014). Etant habilitée à délivrer des diplômes de Maîtrise
+                      depuis 2002 et ayant intégré le système LMD depuis la
+                      rentrée 2007, Cette école a offert plusieurs formations
+                      spécialisées dans les domaines du Génie Electrique, de
+                      l’Informatique et de la Gestion Industrielle, parmi
+                      lesquelles des formations d’ingénieurs en sciences
+                      appliquées et Technologie.
+        </p>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+  </ion-card-content>
+  </ion-card>
+  <div id="wrapper">
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+      <!-- Main Content -->
+      <div id="content">
+        <div class="container-fluid">
+          
+
+          <div class="card shadow mb-0">
+            <div class="card-header py-3">
+              <div class="text-center">
+                <h5 class="m-0 font-weight-bold text-primary">Demandes Accéptées</h5>
+              </div>
+            </div>
+            <div class="card-body" >
+              <div class="table-responsive">
+                
+                <h6 class="m-0 font-weight-bold text-primary">Salles</h6>
+                <ion-list [inset]="true" >
+                  <ion-item *ngFor="let demandeS of listSalle" >
+                    <ion-label >Salle Numéro {{ demandeS.numSalle }} au bâtiment {{ demandeS.batiment }} le {{ demandeS.date | date:'dd/MM/yyyy'}} à {{ demandeS.temps }}</ion-label>
+                  </ion-item>
+                 </ion-list>
+              </div>
+              <div class="table-responsive">
+                <h6 class="m-0 font-weight-bold text-primary">Materiels</h6>
+                <ion-list [inset]="true" >
+                  
+                  <ion-item *ngFor="let demandeM of listMateriel">
+                    <ion-label> {{ demandeM.quantite }} x {{ demandeM.materiel }} le {{ demandeM.date | date:'dd/MM/yyyy'}} à {{ demandeM.temps }}</ion-label>
+                  </ion-item>
+                 </ion-list>
+              </div>
+              <div class="table-responsive">
+                <h6 class="m-0 font-weight-bold text-primary">Bus</h6>
+                 <ion-list [inset]="true" >
+                  <ion-item *ngFor="let demande of listBus">
+                    <ion-label> Destination:{{ demande.destination }} du {{ demande.dateDep | date:'dd/MM/yyyy'}} à {{ demande.heureDep }} jusqu'à {{ demande.dateArr | date:'dd/MM/yyyy'}} à {{ demande.heureArr }}</ion-label>
+                  </ion-item>
+                 </ion-list>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+</div>

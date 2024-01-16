@@ -1,0 +1,7 @@
+{
+  "name": "Frontmobile",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,116 @@
+<ion-menu contentId="main-content">
+  <ion-content>
+    
+<div class="menu-header-bg"></div>
+<div class="header-content">
+<img src="assets/img/mel.jpg" alt=""> <ion-label>
+<h2>Melkart Junior Entreprise</h2>
+<p>Association</p>
+</ion-label>
+</div>
+
+<ion-list lines="none">
+<ion-item class="card1" routerLink="/acceuil">
+<ion-icon name="home-outline"></ion-icon >Acceuil </ion-item>
+<ion-item class="card1" routerLink="/demande-salle">
+<ion-icon name="business-outline"></ion-icon>Demande Salle </ion-item>
+<ion-item class="card1" routerLink="/demande-bus" class="active">
+<ion-icon name="bus-outline"></ion-icon>Demande Bus
+</ion-item>
+<ion-item class="card1" routerLink="/demande-materiel">
+<ion-icon name="construct-outline"></ion-icon >Demande Matériel </ion-item>
+<ion-item class="card1" routerLink="/proposition">
+<ion-icon name="add-circle-outline"></ion-icon>Propositions </ion-item>
+<ion-item class="card1" routerLink="/reclamation">
+  <ion-icon name="remove-circle-outline"></ion-icon>Réclamations </ion-item>
+</ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content" class="ion-page" #page>
+  <ion-header  [translucent]="true">
+    <ion-toolbar color="light">
+     
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="sidebar-brand-text mx-3" color="primary">Espace Organisation</ion-title>
+      <ion-buttons slot="end">
+        <ion-button  id="present-alert">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+        <ion-alert
+trigger="present-alert"
+header="Voulez vous déconnecter ?"
+[buttons]="alertButtons"
+(didDismiss)="setResult($event)"
+></ion-alert>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Déposer la demande de bus</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="(onSubmit)" #demandeBusForm="ngForm">
+        <ion-item>
+          <ion-input label="Destination" labelPlacement="floating" type="text"
+          class="form-control"
+          name="destination"
+          [(ngModel)]="demandeBus.destination"
+          required></ion-input>
+        </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input id="date" class="form-control" label="Date de départ" labelPlacement="floating" type="date" name="dateDep" [(ngModel)]="demandeBus.dateDep" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input id="date" class="form-control" label="Date d'arrivée" labelPlacement="floating" type="date" name="dateArr" [(ngModel)]="demandeBus.dateArr" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input class="form-control" label="Heure de départ" labelPlacement="floating"  type="time" name="heureDep" [(ngModel)]="demandeBus.heureDep" required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input class="form-control" label="Heure de retour" labelPlacement="floating"  type="time" name="heureArr" [(ngModel)]="demandeBus.heureArr" required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+     
+      
+        <ion-item> 
+          <ion-input label="Raison" labelPlacement="floating" type="text"
+          class="form-control"
+          name="raison"
+          [(ngModel)]="demandeBus.raison"
+          required></ion-input>
+        </ion-item>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col push-sm="6">
+              <ion-button shape="round"  type="submit"  (click)="annuler()" class="btn btn-primary" class="ion-margin-top" expand="block">Annuler</ion-button>
+            </ion-col>
+            <ion-col pull-sm="6">
+              <ion-button shape="round"  type="submit" (click)="onSubmit()" class="btn btn-primary" class="ion-margin-top" expand="block">Confirmer</ion-button>
+  
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </form>
+     
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+</div>

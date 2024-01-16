@@ -1,0 +1,133 @@
+<ion-menu contentId="main-content">
+  <ion-content>
+    
+<div class="menu-header-bg"></div>
+<div class="header-content">
+<img src="assets/img/mel.jpg" alt=""> <ion-label>
+<h2>Melkart Junior Entreprise</h2>
+<p>Association</p>
+</ion-label>
+</div>
+
+<ion-list lines="none">
+<ion-item class="card1" routerLink="/acceuil">
+<ion-icon name="home-outline"></ion-icon >Acceuil </ion-item>
+<ion-item class="card1" routerLink="/demande-salle">
+<ion-icon name="business-outline"></ion-icon>Demande Salle </ion-item>
+<ion-item class="card1" routerLink="/demande-bus" class="active">
+<ion-icon name="bus-outline"></ion-icon>Demande Bus
+</ion-item>
+<ion-item class="card1" routerLink="/demande-materiel">
+<ion-icon name="construct-outline"></ion-icon >Demande Matériel </ion-item>
+<ion-item class="card1" routerLink="/proposition">
+<ion-icon name="add-circle-outline"></ion-icon>Propositions </ion-item>
+<ion-item class="card1" routerLink="/reclamation">
+  <ion-icon name="remove-circle-outline"></ion-icon>Réclamations </ion-item>
+</ion-list>
+  </ion-content>
+</ion-menu>
+<div class="ion-page" id="main-content" class="ion-page" #page>
+  <ion-header  [translucent]="true">
+    <ion-toolbar color="light">
+     
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title class="sidebar-brand-text mx-3" color="primary">Espace Organisation</ion-title>
+      <ion-buttons slot="end">
+        <ion-button  id="present-alert">
+          <ion-icon slot="icon-only" name="log-out"></ion-icon>
+        </ion-button>
+        <ion-alert
+trigger="present-alert"
+header="Voulez vous déconnecter ?"
+[buttons]="alertButtons"
+(didDismiss)="setResult($event)"
+></ion-alert>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+<ion-content [fullscreen]="true">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">Déposer la demande de Matériel</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form (ngSubmit)="(onSubmit)" #demandeMaterielForm="ngForm">
+        <ion-grid>
+          <ion-row>
+            
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-select label="Matériel" labelPlacement="floating"  name="materiel" okText="Confirmer" cancelText="Annuler" [(ngModel)]="demandeMateriel.materiel"
+                required class="form-control form-control-user"  errorText="Champs obligatoire">
+                  <ion-select-option value="cable HDMI">Câble HDMI</ion-select-option>
+                  <ion-select-option value="multiprise">Multiprise</ion-select-option>
+                  <ion-select-option value="video_projecteur">Vidéo projecteur</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input class="form-control" label="Quantité" labelPlacement="floating" type="text"
+                name="materiel"
+                [(ngModel)]="demandeMateriel.quantite"
+                required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input id="date" class="form-control" label="Date" labelPlacement="floating" type="date"
+                class="form-control"
+                name="date"
+                [(ngModel)]="demandeMateriel.date"
+                required></ion-input>
+              </ion-item>
+            </ion-col>
+            <ion-col size="6" size-md="4" size-lg="2">
+              <ion-item>
+                <ion-input class="form-control" label="Heure" labelPlacement="floating"  type="time"
+                class="form-control"
+                name="heure"
+                [(ngModel)]="demandeMateriel.temps"
+                required></ion-input>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+     
+        <ion-item>
+          <ion-input class="form-control" label="Durée" labelPlacement="floating"  type="text"
+          class="form-control"
+          name="duree"
+          placeholder="Durée en minutes"
+          [(ngModel)]="demandeMateriel.duree"
+          required></ion-input>
+        </ion-item>
+        <ion-item> 
+          <ion-input label="Raison" labelPlacement="floating" type="text"
+          class="form-control"
+          name="raison"
+          [(ngModel)]="demandeMateriel.raison"
+          required></ion-input>
+        </ion-item>
+
+        <ion-grid>
+          <ion-row>
+            <ion-col push-sm="6">
+              <ion-button shape="round"  type="submit"  (click)="annuler()" class="btn btn-primary" class="ion-margin-top" expand="block">Annuler</ion-button>
+            </ion-col>
+            <ion-col pull-sm="6">
+              <ion-button shape="round"  type="submit" (click)="onSubmit()" class="btn btn-primary" class="ion-margin-top" expand="block">Confirmer</ion-button>
+  
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        
+      </form>
+     
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+</div>
